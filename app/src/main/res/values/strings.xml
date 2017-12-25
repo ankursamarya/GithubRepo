@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GithubRepo</string>
+    <string name="enter_user_name">Enter User Name</string>
+    <string name="enter_repo_name">Enter Repo Name</string>
+    <string name="search">Search</string>
+    <string name="msg_please_enter_user_name">Please enter user name</string>
+    <string name="msg_please_enter_repo_name">please enter repo name</string>
+</resources>
