@@ -5,8 +5,6 @@ import com.example.githubrepo.pojo.PullRequest;
 
 import java.util.List;
 
-
-
 public interface ViewContract {
 
     void showPullRequests(List<PullRequest> pullRequests);

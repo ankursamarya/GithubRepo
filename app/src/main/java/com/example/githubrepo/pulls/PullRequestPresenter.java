@@ -7,16 +7,16 @@ import java.util.List;
 import rx.Subscriber;
 
 
-public class PullsPresenter implements PresenterContract {
+public class PullRequestPresenter implements PresenterContract {
 
-    public static final String TAG = "PullsPresenter";
+    public static final String TAG = "PullReqPre";
 
     private ViewContract viewContract;
     private ModelContract modelContract;
 
-    public PullsPresenter(ViewContract viewContract) {
+    public PullRequestPresenter(ViewContract viewContract) {
         this.viewContract = viewContract;
-        modelContract = new PullsModel();
+        modelContract = new PullRequestsModel();
     }
 
     @Override
@@ -40,7 +40,7 @@ public class PullsPresenter implements PresenterContract {
     }
 
     @Override
-    public void loadMorePulls(String user, String repo, int page) {
+    public void loadMorePullRequests(String user, String repo, int page) {
 
         modelContract.fetchPullRequest(user, repo, page, new Subscriber<List<PullRequest>>() {
 

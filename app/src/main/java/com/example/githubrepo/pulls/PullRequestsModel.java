@@ -9,7 +9,7 @@ import java.util.List;
 
 import rx.Observer;
 
-public class PullsModel implements ModelContract {
+public class PullRequestsModel implements ModelContract {
 
     @Override
     public void fetchPullRequest(String user, String repo, final int page, Observer observer) {

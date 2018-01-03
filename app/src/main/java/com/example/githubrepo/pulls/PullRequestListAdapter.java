@@ -16,28 +16,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHolder> {
+public class PullRequestListAdapter extends RecyclerView.Adapter<PullRequestListAdapter.CustomViewHolder> {
 
     private List<PullRequest> pullRequest = new ArrayList<PullRequest>();
-    private final Context mContext;
+    private final Context context;
 
-    public ListAdapter(Context context, List<PullRequest> pullRequest) {
-        this.mContext = context;
+    public PullRequestListAdapter(Context context, List<PullRequest> pullRequest) {
+        this.context = context;
         this.pullRequest = pullRequest;
     }
 
     @Override
-    public ListAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        final LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
-        final View sView = mInflater.inflate(R.layout.item, parent, false);
-        return new CustomViewHolder(sView);
+    public PullRequestListAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        final View item = inflater.inflate(R.layout.item, parent, false);
+        return new CustomViewHolder(item);
     }
 
     @Override
-    public void onBindViewHolder(ListAdapter.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(PullRequestListAdapter.CustomViewHolder holder, int position) {
         PullRequest pull = pullRequest.get(position);
         holder.name.setText(pull.title);
-        Glide.with(mContext).load(pull.user.avatarUrl).error(R.mipmap.ic_launcher).placeholder(R.mipmap.ic_launcher).into(holder.image);
+        Glide.with(context).load(pull.user.avatarUrl).error(R.mipmap.ic_launcher).placeholder(R.mipmap.ic_launcher).into(holder.image);
     }
 
     @Override
