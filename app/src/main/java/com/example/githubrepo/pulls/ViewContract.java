@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface ViewContract {
 
-    public void showPullRequests(List<PullRequest> pullRequests);
+    void showPullRequests(List<PullRequest> pullRequests);
 
-    public void showError();
+    void showError();
 
     void showMore(List<PullRequest> pullRequests);
 

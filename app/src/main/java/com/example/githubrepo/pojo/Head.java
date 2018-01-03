@@ -17,7 +17,7 @@ public class Head {
     public String sha;
     @SerializedName("user")
     @Expose
-    public User_ user;
+    public User user;
     @SerializedName("repo")
     @Expose
     public Repo repo;

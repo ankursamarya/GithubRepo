@@ -17,9 +17,9 @@ public class Base {
     public String sha;
     @SerializedName("user")
     @Expose
-    public User__ user;
+    public User user;
     @SerializedName("repo")
     @Expose
-    public Repo_ repo;
+    public Repo repo;
 
 }

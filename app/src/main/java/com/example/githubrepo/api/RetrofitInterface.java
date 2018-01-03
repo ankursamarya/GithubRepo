@@ -1,8 +1,6 @@
 package com.example.githubrepo.api;
 
-
 import android.util.Log;
-
 
 import com.example.githubrepo.BuildConfig;
 import com.example.githubrepo.GithubRepoApplication;
@@ -25,13 +23,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitInterface {
+
     public static final String HOST = "https://api.github.com/";
     public static final String NO_CACHE = "no-cache";
     private static long SIZE_OF_CACHE = 20 * 1024 * 1024; // 20 MB
 
     private static final OkHttpInterceptor okHttpInterceptor = new OkHttpInterceptor();
-
-
 
     private static RetrofitInterface INSTANCE = null;
 
@@ -51,7 +48,6 @@ public class RetrofitInterface {
         }
 
         return INSTANCE;
-
     }
 
     public ApiInterface getApiInterface() {
@@ -87,9 +83,6 @@ public class RetrofitInterface {
         // Create OkHttpClient
         builder.networkInterceptors().add(okHttpInterceptor);
         builder.cache(cache);
-
-
-
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         builder.interceptors().add(loggingInterceptor);
@@ -97,9 +90,7 @@ public class RetrofitInterface {
         return builder.build();
     }
 
-
     public static class OkHttpInterceptor implements okhttp3.Interceptor {
-
 
         public OkHttpInterceptor() {
 
@@ -110,7 +101,6 @@ public class RetrofitInterface {
             Request originalRequest = chain.request();
             String maxAge = originalRequest.header("Cache-max-age");
             Request.Builder builder = originalRequest.newBuilder();
-
 
             if (originalRequest.method().equals("GET")) {
 
@@ -128,10 +118,10 @@ public class RetrofitInterface {
             boolean isPublic = response.cacheControl().isPublic();
             if (maxAge != null && !isPublic) {
                 if (BuildConfig.DEBUG)
-                response = response.newBuilder()
-                        .removeHeader("Pragma")
-                        .header("Cache-Control", String.format("max-age=%s, only-if-cached, max-stale=%d", maxAge, 86400))
-                        .build();
+                    response = response.newBuilder()
+                            .removeHeader("Pragma")
+                            .header("Cache-Control", String.format("max-age=%s, only-if-cached, max-stale=%d", maxAge, 86400))
+                            .build();
             }
             return response;
         }

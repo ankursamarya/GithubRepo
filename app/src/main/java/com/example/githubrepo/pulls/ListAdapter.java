@@ -18,17 +18,12 @@ import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHolder> {
 
-
     private List<PullRequest> pullRequest = new ArrayList<PullRequest>();
-
     private final Context mContext;
-
-
 
     public ListAdapter(Context context, List<PullRequest> pullRequest) {
         this.mContext = context;
         this.pullRequest = pullRequest;
-
     }
 
     @Override
@@ -43,8 +38,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
         PullRequest pull = pullRequest.get(position);
         holder.name.setText(pull.title);
         Glide.with(mContext).load(pull.user.avatarUrl).error(R.mipmap.ic_launcher).placeholder(R.mipmap.ic_launcher).into(holder.image);
-
-
     }
 
     @Override
@@ -53,21 +46,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
     }
 
 
-    public class CustomViewHolder extends RecyclerView.ViewHolder  {
+    public class CustomViewHolder extends RecyclerView.ViewHolder {
 
-
-        TextView name;
-        ImageView image;
+        private TextView name;
+        private ImageView image;
 
         public CustomViewHolder(View view) {
             super(view);
-
             name = (TextView) view.findViewById(R.id.tvName);
             image = (ImageView) view.findViewById(R.id.UserImage);
-
         }
-
-
-
     }
 }

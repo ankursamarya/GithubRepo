@@ -9,15 +9,12 @@ import android.content.Context;
 
 public class GithubRepoApplication extends Application {
 
-
     private static GithubRepoApplication mApplication;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mApplication = this;
-
-
     }
 
     public static Context getInstance() {
